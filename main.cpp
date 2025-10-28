@@ -47,8 +47,7 @@ int main() {
     };
 
     story["basement"] = {
-        "You descend into darkness. A faint hum echoes — a generator.\n"
-        "1. Turn it on\n2. Stay quiet",
+        "You descend into darkness. A faint hum echoes, a generator.",
         {
             {"Turn it on", "power restore"},
             {"Search in darkness", "tunnel"}
@@ -56,8 +55,7 @@ int main() {
     };
     
     story["power restore"] = {
-        "The lights flicker for a brief moment - you glimpse a shadowy figure.\n"
-        "1. Turn it on\n2. Stay quiet",
+        "The lights flicker for a brief moment - you glimpse a shadowy figure.",
         {
             {"Run out of the basement", "death"},
             {"Stay quiet", "tunnel"}
@@ -65,7 +63,7 @@ int main() {
     };
 
     story["door"] = {
-        "You barricade the door with furniture.\n1. Wait it out\n2. Peek outside",
+        "You barricade the door with furniture.",
         {
             {"Wait it out", "safe"},
             {"Peek outside", "reflection"}
@@ -73,7 +71,7 @@ int main() {
     };
 
     story["window"] = {
-        "You wipe frost from the glass.\n1. Wave for help\n2. Smash window and run",
+        "You wipe frost from the glass.",
         {
             {"Wave for help", "reflection"},
             {"Smash window and run", "freeze"}
@@ -110,6 +108,9 @@ int main() {
             cout << "Invalid choice.\n";
             continue;
         }
+
+        cout << "You chose: " << story[current].choices[choice - 1].first << "\n\n";
+        this_thread::sleep_for(chrono::milliseconds(600));        
 
         current = story[current].choices[choice - 1].second;
     }
