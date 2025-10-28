@@ -109,7 +109,7 @@ int main() {
             continue;
         }
 
-        cout << "You chose: " << story[current].choices[choice - 1].first << "\n\n";
+        cout << "You chose: " << story[current].choices[choice - 1].first << "\n\n"; //prints out player choice
         this_thread::sleep_for(chrono::milliseconds(600));        
 
         current = story[current].choices[choice - 1].second;
